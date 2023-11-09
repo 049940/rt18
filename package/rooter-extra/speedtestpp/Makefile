@@ -7,7 +7,6 @@ PKG_RELEASE:=$(AUTORELEASE)
 PKG_SOURCE_PROTO:=github/git
 PKG_SOURCE_URL: =https://github.com/taganaka/SpeedTest.git
 PKG_SOURCE_DATE:=2021-12-06
-                =2023-04-01
 PKG_SOURCE_VERSION:=0f63cfbf7ce8d64ea803bf143b957eae76323405
 PKG_MIRROR_HASH:=4221584dc3e1e31f2560ef347298a2bcca3ac2331049970b7bd7d742e4e1825f
 
@@ -24,7 +23,7 @@ CMAKE_OPTIONS += -DCMAKE_BUILD_TYPE=Release .
 
 define Package/speedtestpp
   SECTION:=net 
-  CATEGORY:=Networking
+  CATEGORY:=network/networking
   TITLE:=speedtest++
   DEPENDS:=+libcurl +libxml2 +libopenssl +libstdcpp $(ICONV_DEPENDS)
   CONFLICTS:=python3-speedtest-cli
@@ -35,7 +34,7 @@ define Package/speedtestpp/description
   Yet another unofficial speedtest.net client cli interface
 endef
 
-define Package/speedtestpp/install/installationsspeeds
+define Package/speedtestpp/install/installer
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/SpeedTest $(1)/usr/bin/speedtest
 endef
